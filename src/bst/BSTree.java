@@ -1,16 +1,18 @@
 package bst;
 
+import as1.BSTNode;
+
 /**
  * @author Wei Liu 3718446
  */
-public class BSTree<T extends Comparable<T>> {
+public class BSTree<T extends Comparable<? super T>> {
 
-    class Node<E extends Comparable<E>> {
-        private E value;
-        private Node<E> left;
-        private Node<E> right;
+    private  static class Node<T> {
+        private T value;
+        private Node<T> left;
+        private Node<T> right;
 
-        public Node(E value, Node<E> left, Node<E> right) {
+        public Node(T value, Node<T> left, Node<T> right) {
             this.value = value;
             this.left = left;
             this.right = right;
@@ -18,6 +20,10 @@ public class BSTree<T extends Comparable<T>> {
     }
 
     private Node<T> root;
+
+    public BSTree (){
+        root = null;
+    }
 
     public Node<T> getRoot() {
         return root;
